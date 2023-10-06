@@ -7,3 +7,4 @@ export interface User {
   password: string,
   userInfo: UserInfo
 }
+
