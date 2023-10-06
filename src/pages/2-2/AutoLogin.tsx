@@ -10,13 +10,19 @@ const AutoLogin = () => {
 
     // TODO: 유저 정보 가져오기 (getCurrentUserInfo 함수 사용)
     // getCurrentUserInfo 함수를 이용해 유저 정보를 가져온 후, setUserInfo 함수를 이용해 userInfo 상태를 업데이트해주세요.
+    const userInfo = await getCurrentUserInfo();
 
-    isDataFetched.current = true
+    if (userInfo === null) return
+
+    setUserInfo(userInfo);
+    console.log(userInfo);
+
+    isDataFetched.current = true;
   }, [])
 
   useEffect(() => {
     if (isDataFetched.current) return
-    getUserInfo()
+    getUserInfo();
   }, [])
 
   return (<div>
